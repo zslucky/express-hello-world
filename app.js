@@ -1,11 +1,19 @@
 const express = require("express");
+const bodyParser = require('body-parser')
 const app = express();
 const port = process.env.PORT || 3001;
+
+app.use(bodyParser.json());
 
 app.get("/", (req, res) => res.type('html').send(html));
 
 app.post("/api/cb", (req, res) => {
-  res.send('you posted!');
+  console.log(req.body);
+  // res.send({
+  //   code: 200,
+  //   data: 'ht'
+  // });
+  res.send(req.body);
 });
 
 const server = app.listen(port, () => console.log(`Example app listening on port ${port}!`));
