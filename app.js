@@ -8,6 +8,7 @@ app.use(bodyParser.json());
 app.get("/", (req, res) => res.type('html').send(html));
 
 app.post("/api/cb", (req, res) => {
+  console.log('Receive request!');
   console.log(req.body);
   // res.send({
   //   code: 200,
